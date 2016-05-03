@@ -6,12 +6,14 @@ import Main.Main;
 
 import Board.Board;
 
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.util.List;
 
 /**
  * Created by magnumog on 03.05.16.
  */
-public class GameLogic {
+public class GameLogic implements KeyListener {
 
 
 
@@ -29,8 +31,14 @@ public class GameLogic {
         }
     }
 
-    private boolean movePossible(Directions down, int xPos, int yPos) {
-        return true;
+    private boolean movePossible(Directions dir, int xPos, int yPos) {
+        List<String> board = Main.board.get(Main.board.size()-1).getBoard();
+        String x = board.get(yPos);
+        String y = board.get(yPos+dir.getVerticalVal());
+        System.out.println(x.charAt(xPos+dir.getHorizentalVal()));
+        System.out.println(y.charAt(xPos));
+        if(x.charAt(xPos+dir.getHorizentalVal()))
+        return false;
     }
 
     public int getXPosition() {
@@ -51,5 +59,20 @@ public class GameLogic {
             }
         }
         return 0;
+    }
+
+    @Override
+    public void keyTyped(KeyEvent e) {
+
+    }
+
+    @Override
+    public void keyPressed(KeyEvent e) {
+
+    }
+
+    @Override
+    public void keyReleased(KeyEvent e) {
+
     }
 }
