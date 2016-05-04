@@ -7,7 +7,6 @@ import Main.Main;
 import Board.Board;
 
 import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -15,7 +14,10 @@ import java.util.List;
 /**
  * Created by magnumog on 03.05.16.
  */
-public class GameLogic implements KeyListener {
+public class GameLogic {
+
+    public GameLogic() {
+    }
 
     public boolean isGameFinished() {
         List<String> board = Main.board.get(Main.board.size()-1).getBoard();
@@ -128,30 +130,5 @@ public class GameLogic implements KeyListener {
         } catch (Exception e) {
             e.printStackTrace();
         }
-    }
-
-    @Override
-    public void keyTyped(KeyEvent e) {
-
-    }
-
-    @Override
-    public void keyPressed(KeyEvent e) {
-        int key = e.getKeyCode();
-        if(key==KeyEvent.VK_W) {
-            System.out.println("You pressed W");
-        } else if(key==KeyEvent.VK_S) {
-            System.out.println("You pressed S");
-        } else if(key==KeyEvent.VK_A) {
-            System.out.println("You pressed A");
-        } else if(key==KeyEvent.VK_D) {
-            System.out.println("You pressed D");
-        }
-
-    }
-
-    @Override
-    public void keyReleased(KeyEvent e) {
-
     }
 }
